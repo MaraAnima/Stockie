@@ -1,0 +1,256 @@
+# MaraBot
+
+Bot automatizado para gestión de publicaciones y control de stock en **Turacion.com**, integrando **Playwright**, **Google Sheets** y **Excel**.
+
+---
+
+## Carpetas
+
+marabot/
+│
+├── service/  
+│ ├── documentation/  
+│ │ ├── logs/
+│ │ │ └──botStock.log # Registros
+│ │ ├── logger.js # Maneja los registros de la app
+│ │ └── mailer.js # Envía mails en caso de error
+│ │
+│ ├── downloads/
+│ │ └── descarga.xlsx # Archivos descargados temporalmente
+│ │
+│ ├── botPrecios.js # Punto de entrada principal
+│ ├── excelService.js # Descarga y primera lectura del Excel
+│ ├── googleSheets.js # Funciones para manejar Excel online
+│ └── playwrightService.js # Recorrido del DOM y envío de info a los demás módulos
+│
+└── .env # Variables sensibles: API keys, correos, contraseñas
+
+## 🚀 Características
+
+- Descarga y lee un Excel con SKUs desde un **Google Sheet público** (exportado a XLSX).
+- Automatiza **login** y **navegación** en el panel de administración de **Turacion.com** con Playwright.
+- Para cada SKU:
+
+  - Detecta si tiene **“Regalo a elección”**.
+  - Verifica estado de publicación en **Web** y **Mercado Libre**.
+  - Aplica reglas de marca (excepciones para marcas especiales).
+
+- Actualiza resultados en una hoja de **Google Sheets**.
+- Envío de **notificaciones por email** en caso de error.
+
+---
+
+## 🧩 Arquitectura (alto nivel)
+
+1. **botPrecios.js** (orquestador): descarga el XLSX, lee SKUs, inicia Playwright, itera y actualiza Sheets.
+2. **playwrightService.js**: `login()` y `procesarSku()` (scraping, checks, resumenes).
+3. **excelService.js**: descarga del XLSX y lectura con `xlsx`.
+4. **googleSheets.js**: `authorize()`, `actualizarCelda()`.
+5. **mailer.js**: manejador de errores vía email.
+6. **logger.js**: registro
+
+```
+Google Sheets (público) ──> XLSX local ──> MaraBot ──> Turacion.com (Admin)
+                                            │            │
+                                            └──> Google Sheets (resultado)
+                                            └──> Mail en caso de error
+```
+
+---
+
+## 📦 Dependencias principales
+
+- [playwright](https://www.npmjs.com/package/playwright)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [googleapis](https://www.npmjs.com/package/googleapis)
+- [xlsx](https://www.npmjs.com/package/xlsx)
+- [nodemailer](https://www.npmjs.com/package/nodemailer)
+
+Instalación mínima:
+
+```bash
+npm install playwright dotenv googleapis xlsx nodemailer winston
+# (Recomendado para Playwright)
+npx playwright install --with-deps
+```
+
+> **Node.js requerido:** v16 o superior (recomendado LTS vigente).
+
+---
+
+## 🔐 Configuración
+
+### 1) Variables de entorno (`.env`)
+
+Crea un archivo `.env` en la raíz:
+
+```env
+# Credenciales de Turacion
+TURACION_EMAIL=tu_email
+TURACION_PASSWORD=tu_password
+
+# Credenciales GoogleSheets (no estan aplicadas, pero deberia ponerlas jsjsjsj)
+SMTP_HOST=smtp.tu_proveedor.com
+SMTP_PORT=587
+SMTP_USER=usuario
+SMTP_PASS=clave
+
+#Credenciales Mailer
+MAIL_USER=tu_user
+MAIL_PASS=tu_pass
+MAIL_TO=destinatario_
+
+```
+
+> **Seguridad:** No subas `.env`, `credentials.json` ni `token.json` a Git. Asegúrate de tenerlos en `.gitignore`.
+
+### 2) Google Sheets API
+
+- En **Google Cloud Console** crea un proyecto y habilita **Google Sheets API**.
+- Descarga el \`\` (OAuth client/Installed) y colócalo en la **raíz** del proyecto.
+- La primera ejecución generará `token.json` (autorización local).
+
+**Scopes sugeridos**:
+
+```
+https://www.googleapis.com/auth/spreadsheets
+```
+
+### 3) Hoja de cálculo
+
+- El **ID** del spreadsheet (ej. `1iSHc...`) debe configurarse en el código o `.env`.
+- La hoja del día se nombra \`\` (p.ej. `2025-08-16`).
+- Estructura mínima de columnas:
+
+  - **A**: `PRODUCTO`
+  - **B**: `SKU`
+  - **C**: `DÍA`
+  - **D**: `Publicado Web (Sí/No)`
+  - **E**: `Regalo a elección (Sí/No)`
+  - **F**: `Publicado ML (Sí/No)`
+  - **G**: `Resumen`
+
+> Si tus columnas difieren, ajusta los rangos al actualizar con `actualizarCelda()`.
+
+---
+
+## 🏃 Ejecución
+
+```bash
+# 1) Instala dependencias
+npm install
+npx playwright install --with-deps
+
+# 2) Ejecuta el bot
+node service/botPrecios.js
+```
+
+**Flags útiles de Playwright:**
+
+- Modo visible: `chromium.launch({ headless: false })` (por defecto en este proyecto)
+- Modo headless: `chromium.launch({ headless: true })`
+
+---
+
+## 🗂️ Estructura sugerida
+
+```
+service/
+  botPrecios.js            # Flujo principal
+  playwrightService.js     # login() y procesarSku()
+  excelService.js          # descargarExcel(), obtenerSkusDesdeArchivoLocal()
+  googleSheets.js          # authorize(), actualizarCelda()
+  mailer.js                # enviarMailError()
+.env
+credentials.json           # Google API (no commitear)
+token.json                 # Se genera tras autorizar (no commitear)
+```
+
+---
+
+## ⚙️ Lógica clave
+
+- **Detección de tabla de atributos** (regalo a elección):
+
+  - Tabla con ID `#productattributemappings-grid`.
+  - Tabla vacía: `td.dataTables_empty`.
+  - Tabla con datos: `tbody tr[role="row"]`.
+
+- **Checks de publicación**:
+
+  - Web: checkboxes `#Published` y `#VisibleIndividually`.
+  - ML: estados en `#productsMeliList-grid_wrapper` con `span.grid-report-item` (`.green` activo / `.red` en revisión).
+
+- **Reglas por marca**: aplicar excepciones para marcas **acana, orijen, guabi, gran plus, naturalis, formula natural, multivet**.
+
+---
+
+## 🧪 Ejemplo de salida (Google Sheets)
+
+- **D (Web)**: `Sí` / `No` según `#Published`.
+- **E (Regalo a elección)**: `Sí` si existe `#productattributemappings-grid` con filas.
+- **F (ML)**: `Sí` si hay al menos una publicación `.green`.
+- **G (Resumen)**: texto agregando contexto de Web/ML y reglas.
+
+---
+
+## 🛡️ Manejo de errores
+
+- `try/catch` por **SKU** para no cortar el lote.
+- `enviarMailError(asunto, cuerpo)` en el **catch** principal.
+- Logs descriptivos en consola (✅/❌ por SKU).
+
+---
+
+## 🧯 Troubleshooting
+
+- `** / **`: Inicializa **ambas** variables al inicio de `procesarSku` y **siempre** retorna `{ resumenCompleto, resumenML, resumenWeb, RegaloAEleccion }`.
+- **Playwright no encuentra filas**: Evitá `waitForTimeout`. Usá `waitForSelector('tr[role="row"]')` y selectores específicos como `'#productattributemappings-grid tbody tr[role="row"]'`.
+- \`\`\*\* falta\*\*: Capturá excepciones al leerlo y dispará `enviarMailError`.
+- **Doble definición de funciones**: No redefinir `login/procesarSku` en `botPrecios.js` si ya se exportan desde `playwrightService.js`.
+
+---
+
+## 🔄 Ejecución programada
+
+- Con **pm2**:
+
+  ```bash
+  npm i -g pm2
+  pm2 start service/botPrecios.js --name marabot
+  pm2 save && pm2 startup
+  ```
+
+- Con **node-cron** (opcional): agrega un job para correr cada 30 minutos.
+
+---
+
+## 🧰 Scripts (opcional en `package.json`)
+
+```json
+{
+  "scripts": {
+    "start": "node service/botPrecios.js",
+    "dev": "NODE_ENV=development node service/botPrecios.js",
+    "playwright:install": "playwright install --with-deps"
+  }
+}
+```
+
+---
+
+## 🔒 Seguridad y buenas prácticas
+
+- No exponer URLs con tokens ni IDs sensibles.
+- Rotar contraseñas y usar cuentas de **solo lectura** para Sheets cuando sea posible.
+- Manejar **reintentos** y **timeouts** en Playwright para robustez.
+
+---
+
+## 📌 Roadmap
+
+- ***
+
+## 📄 Licencia
+
+MIT
