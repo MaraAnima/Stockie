@@ -179,7 +179,7 @@ async function procesarSku(page, sku) {
     let marca = null;
     for (const opcion of opciones) {
       if (marcasEspeciales.includes(opcion)) {
-        marca = opcion; // ya en minúsculas
+        marca = opcion;
         break;
       }
     }

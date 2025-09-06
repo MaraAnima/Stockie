@@ -40,7 +40,7 @@ function actualizarFechaChequeo(rutaLocal, skusProcesados) {
   });
 
   const now = new Date();
-  const fechaHoy = new Date().toLocaleString(); // fecha + hora, según  configuración regional
+  const fechaHoy = new Date().toLocaleString(); // fecha + hora
 
   for (let i = 1; i < jsonData.length; i++) {
     const skuFila = String(jsonData[i][1]).trim();

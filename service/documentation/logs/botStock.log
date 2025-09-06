@@ -69,3 +69,86 @@ https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&
 🔎 Buscando SKU: 123465
 [2025-08-30 14:16:28] [INFO]: ❌ No se encontraron enlaces para SKU 123465
 [2025-08-30 14:16:30] [INFO]: ✅ Datos actualizados en 123465
+[2025-09-06 08:28:36] [INFO]: ✅ Excel descargado en:
+[2025-09-06 08:28:36] [INFO]: SKUs encontrados:
+[2025-09-06 08:28:40] [ERROR]: ❌ Error en el proceso: page.waitForNavigation: net::ERR_ABORTED; maybe frame was detached?
+=========================== logs ===========================
+waiting for navigation until "networkidle"
+============================================================
+[2025-09-06 08:33:57] [INFO]: ✅ Excel descargado en:
+[2025-09-06 08:33:57] [INFO]: SKUs encontrados:
+[2025-09-06 08:33:57] [INFO]: Abrí este link para autorizar:
+https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets&response_type=code&client_id=395817583391-msd1blmfh9s2oqgb4kphm3322uog7r2t.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2callback
+[2025-09-06 08:33:57] [INFO]: Esperando autorización en http://localhost:3000/oauth2callback ...
+[2025-09-06 08:34:25] [INFO]: Token guardado en token.json
+[2025-09-06 08:34:31] [INFO]: ✅ Login realizado con éxito
+[2025-09-06 08:34:52] [INFO]: ✅ Excel descargado en:
+[2025-09-06 08:34:52] [INFO]: SKUs encontrados:
+[2025-09-06 08:34:57] [INFO]: ✅ Login realizado con éxito
+[2025-09-06 09:03:27] [INFO]: ✅ Excel descargado en:
+[2025-09-06 09:03:27] [INFO]: SKUs encontrados:
+[2025-09-06 09:03:30] [ERROR]: ❌ Error en el proceso: page.waitForNavigation: net::ERR_ABORTED; maybe frame was detached?
+=========================== logs ===========================
+waiting for navigation until "networkidle"
+============================================================
+[2025-09-06 09:04:54] [INFO]: ✅ Excel descargado en:
+[2025-09-06 09:04:54] [INFO]: SKUs encontrados:
+[2025-09-06 09:05:26] [ERROR]: ❌ Error en el proceso: page.fill: Target page, context or browser has been closed
+Call log:
+[2m  - waiting for locator('#pipi')[22m
+
+[2025-09-06 09:06:20] [INFO]: ✅ Excel descargado en:
+[2025-09-06 09:06:20] [INFO]: SKUs encontrados:
+[2025-09-06 09:06:22] [ERROR]: ❌ Error en el proceso: funcionequis is not defined
+[2025-09-06 09:18:11] [INFO]: ✅ Excel descargado en:
+[2025-09-06 09:18:11] [INFO]: SKUs encontrados:ACORT2
+[2025-09-06 09:18:17] [INFO]: ✅ Login realizado con éxito
+[2025-09-06 09:18:17] [INFO]: 
+🔎 Buscando SKU: ACORT2
+[2025-09-06 09:18:30] [INFO]: ✅ Checkboxes activados para este enlace.
+[2025-09-06 09:18:34] [INFO]: Opciones detectadas en el DOM:
+[2025-09-06 09:18:34] [INFO]: Resumen completo: Está publicado correctamente en Mercado Libre y Está publicado en la web
+[2025-09-06 09:18:38] [INFO]: ✅ Datos actualizados en ACORT2
+[2025-09-06 09:19:26] [INFO]: ✅ Excel descargado en:
+[2025-09-06 09:19:26] [INFO]: SKUs encontrados:ACORT2
+[2025-09-06 09:19:26] [INFO]: Abrí este link para autorizar:
+https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets&response_type=code&client_id=395817583391-msd1blmfh9s2oqgb4kphm3322uog7r2t.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2callback
+[2025-09-06 09:19:26] [INFO]: Esperando autorización en http://localhost:3000/oauth2callback ...
+[2025-09-06 11:49:17] [INFO]: ✅ Excel descargado en:
+[2025-09-06 11:49:17] [INFO]: SKUs encontrados:ACORT2
+[2025-09-06 11:49:17] [ERROR]: ❌ Error en el proceso: Cannot destructure property 'client_secret' of 'credentials.installed' as it is undefined.
+[2025-09-06 11:49:32] [INFO]: ✅ Excel descargado en:
+[2025-09-06 11:49:32] [INFO]: SKUs encontrados:ACORT2
+[2025-09-06 11:49:32] [ERROR]: ❌ Error en el proceso: Cannot destructure property 'client_secret' of 'credentials.installed' as it is undefined.
+[2025-09-06 11:52:16] [INFO]: ✅ Excel descargado en:
+[2025-09-06 11:52:16] [INFO]: SKUs encontrados:ACORT2
+[2025-09-06 11:52:16] [INFO]: Abrí este link para autorizar:
+https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets&response_type=code&client_id=459693255023-vt9sv19b2956qgpltjmt6v3k7u3gs02i.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2callback
+[2025-09-06 11:52:16] [INFO]: Esperando autorización en http://localhost:3000/oauth2callback ...
+[2025-09-06 11:54:25] [INFO]: ✅ Excel descargado en:
+[2025-09-06 11:54:25] [INFO]: SKUs encontrados:ACORT2
+[2025-09-06 11:54:25] [INFO]: Abrí este link para autorizar:
+https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets&response_type=code&client_id=459693255023-vt9sv19b2956qgpltjmt6v3k7u3gs02i.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2callback
+[2025-09-06 11:54:25] [INFO]: Esperando autorización en http://localhost:3000/oauth2callback ...
+[2025-09-06 11:57:30] [INFO]: ✅ Excel descargado en:
+[2025-09-06 11:57:30] [INFO]: SKUs encontrados:ACORT2
+[2025-09-06 11:57:30] [INFO]: Abrí este link para autorizar:
+https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets&response_type=code&client_id=459693255023-vt9sv19b2956qgpltjmt6v3k7u3gs02i.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2callback
+[2025-09-06 11:57:30] [INFO]: Esperando autorización en http://localhost:3000/oauth2callback ...
+[2025-09-06 11:57:50] [INFO]: Token guardado en token.json
+[2025-09-06 11:57:55] [INFO]: ✅ Login realizado con éxito
+[2025-09-06 11:57:55] [INFO]: 
+🔎 Buscando SKU: ACORT2
+[2025-09-06 11:58:07] [INFO]: ✅ Checkboxes activados para este enlace.
+[2025-09-06 11:58:11] [INFO]: Opciones detectadas en el DOM:
+[2025-09-06 11:58:11] [INFO]: Resumen completo: Está publicado correctamente en Mercado Libre y Está publicado en la web
+[2025-09-06 11:58:16] [INFO]: ✅ Datos actualizados en ACORT2
+[2025-09-06 11:59:12] [INFO]: ✅ Excel descargado en:
+[2025-09-06 11:59:12] [INFO]: SKUs encontrados:ACORT2
+[2025-09-06 11:59:17] [INFO]: ✅ Login realizado con éxito
+[2025-09-06 11:59:17] [INFO]: 
+🔎 Buscando SKU: ACORT2
+[2025-09-06 11:59:28] [INFO]: ✅ Checkboxes activados para este enlace.
+[2025-09-06 11:59:32] [INFO]: Opciones detectadas en el DOM:
+[2025-09-06 11:59:32] [INFO]: Resumen completo: Está publicado correctamente en Mercado Libre y Está publicado en la web
+[2025-09-06 11:59:35] [INFO]: ✅ Datos actualizados en ACORT2
