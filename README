@@ -147,12 +147,12 @@ node service/botPrecios.js
 
 **Flags útiles de Playwright:**
 
-- Modo visible: `chromium.launch({ headless: false })` (por defecto en este proyecto)
+- Modo visible: `chromium.launch({ headless: false })` (por defecto)
 - Modo headless: `chromium.launch({ headless: true })`
 
 ---
 
-## 🗂️ Estructura sugerida
+##  Estructura sugerida
 
 ```
 service/
@@ -168,7 +168,7 @@ token.json                 # Se genera tras autorizar (no commitear)
 
 ---
 
-## ⚙️ Lógica clave
+##  Lógica clave
 
 - **Detección de tabla de atributos** (regalo a elección):
 
@@ -185,7 +185,7 @@ token.json                 # Se genera tras autorizar (no commitear)
 
 ---
 
-## 🧪 Ejemplo de salida (Google Sheets)
+## Ejemplo de salida (Google Sheets)
 
 - **D (Web)**: `Sí` / `No` según `#Published`.
 - **E (Regalo a elección)**: `Sí` si existe `#productattributemappings-grid` con filas.
@@ -194,7 +194,7 @@ token.json                 # Se genera tras autorizar (no commitear)
 
 ---
 
-## 🛡️ Manejo de errores
+## Manejo de errores
 
 - `try/catch` por **SKU** para no cortar el lote.
 - `enviarMailError(asunto, cuerpo)` en el **catch** principal.
@@ -202,7 +202,7 @@ token.json                 # Se genera tras autorizar (no commitear)
 
 ---
 
-## 🧯 Troubleshooting
+## Troubleshooting
 
 - `** / **`: Inicializa **ambas** variables al inicio de `procesarSku` y **siempre** retorna `{ resumenCompleto, resumenML, resumenWeb, RegaloAEleccion }`.
 - **Playwright no encuentra filas**: Evitá `waitForTimeout`. Usá `waitForSelector('tr[role="row"]')` y selectores específicos como `'#productattributemappings-grid tbody tr[role="row"]'`.
@@ -211,21 +211,13 @@ token.json                 # Se genera tras autorizar (no commitear)
 
 ---
 
-## 🔄 Ejecución programada
+## Ejecución programada
 
-- Con **pm2**:
-
-  ```bash
-  npm i -g pm2
-  pm2 start service/botPrecios.js --name marabot
-  pm2 save && pm2 startup
-  ```
-
-- Con **node-cron** (opcional): agrega un job para correr cada 30 minutos.
+- Esta programado en este caso con Programador de tareas cada 30 min durante 12 horas, tambien se puede utilizar Cron pero no da tanta flexibilidad.
 
 ---
 
-## 🧰 Scripts (opcional en `package.json`)
+##  Scripts (opcional en `package.json`)
 
 ```json
 {
@@ -236,20 +228,6 @@ token.json                 # Se genera tras autorizar (no commitear)
   }
 }
 ```
-
----
-
-## 🔒 Seguridad y buenas prácticas
-
-- No exponer URLs con tokens ni IDs sensibles.
-- Rotar contraseñas y usar cuentas de **solo lectura** para Sheets cuando sea posible.
-- Manejar **reintentos** y **timeouts** en Playwright para robustez.
-
----
-
-## 📌 Roadmap
-
-- ***
 
 ## 📄 Licencia
 
