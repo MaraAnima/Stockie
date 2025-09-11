@@ -62,6 +62,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
       } = (await procesarSku(page, sku)) || {};
 
       const filaIndex = skus.indexOf(sku) + 2; // +2: porque header en fila 1
+      // Los dos de abajo son probablemente inutiles
 
       // Actualizar columna C con fecha
       const rangoFecha = `${hoja}!C${filaIndex}`;
@@ -106,6 +107,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
       );
       logger.info(`✅ Datos actualizados en ${sku}`);
     }
+    // hay que agregar para la primera celda el titulo del producto para saber que se esta actualizando
 
     await browser.close();
   } catch (error) {
