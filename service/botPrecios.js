@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+require("dotenv").config();
 const { chromium } = require("playwright");
 const logger = require(path.resolve(__dirname, "documentation", "logger"));
 const { procesarSku, login } = require(path.resolve(
@@ -24,7 +25,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
     const browser = await chromium.launch({ headless: false });
     const page = await browser.newPage();
 
-    // URL del Excel público
+    // Esto claramente no deberia estar EN UN COMMIT
     const urlExcelPublico =
       "https://docs.google.com/spreadsheets/d/1iSHcrq5ZoLx-Ol92U8uxlO6Nau6sXIE6fMjaVACggRw/export?format=xlsx";
 
