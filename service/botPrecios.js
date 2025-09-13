@@ -25,9 +25,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
     const browser = await chromium.launch({ headless: false });
     const page = await browser.newPage();
 
-    // Esto claramente no deberia estar EN UN COMMIT
-    const urlExcelPublico =
-      "https://docs.google.com/spreadsheets/d/1iSHcrq5ZoLx-Ol92U8uxlO6Nau6sXIE6fMjaVACggRw/export?format=xlsx";
+    const urlExcelPublico = process.env.URL_EXCEL_PUBLICO;
 
     const rutaLocal = path.resolve(__dirname, "downloads", "temp.xlsx");
 
@@ -42,17 +40,15 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
     const credentials = JSON.parse(fs.readFileSync("credentials.json"));
     const auth = await authorize(credentials);
 
-    const spreadsheetId = "1iSHcrq5ZoLx-Ol92U8uxlO6Nau6sXIE6fMjaVACggRw";
+    const spreadsheetId = process.env.SPREADSHEET_ID;
     const hoy = new Date();
     const pad = (n) => n.toString().padStart(2, "0");
     const hoja = `${hoy.getFullYear()}-${pad(hoy.getMonth() + 1)}-${pad(
       hoy.getDate()
     )}`;
 
-    // 4. Login al sitio con playwright
     await login(page);
 
-    // 5. Procesar SKUs y actualizar fecha en Google Sheets
     for (const sku of skus) {
       const {
         resumenCompleto = "",
