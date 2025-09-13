@@ -74,7 +74,6 @@ async function procesarSku(page, sku) {
   }
   const baseUrl = "https://turacion.com/Admin/Product/List";
 
-  // 1. Primera pasada: detectar cuáles enlaces tienen regalo a elección
   let indicesConRegalo = [];
   for (let i = 0; i < enlacesAProcesar.length; i++) {
     const href = enlacesAProcesar[i];

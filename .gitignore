@@ -1,5 +1,5 @@
 .env
 credentials.json
 token.json
-service/documentation/logs/botStock.log
+service/documentation/logs/*.log
 Entrypoint.bat
