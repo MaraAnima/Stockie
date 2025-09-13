@@ -21,7 +21,7 @@ async function procesarSku(page, sku) {
   let RegaloAEleccion = "No";
   let resumenML = "";
   let resumenWeb = "";
-  let marca = null;
+  let titulo = "";
 
   logger.info(`\n🔎 Buscando SKU: ${sku}`);
   const skuNormalized = String(sku).replace(/\s+/g, "").toLowerCase();
@@ -42,10 +42,19 @@ async function procesarSku(page, sku) {
       el.textContent.toLowerCase()
     );
     if (
+      !tituloRaw.includes("promo express") &&
+      !tituloRaw.includes("mvdeo mascotas")
+    ) {
+      titulo = tituloRaw;
+      logger.info("TITULO RAW:", tituloRaw);
+    }
+
+    if (
       tituloRaw.includes("promo express") ||
       tituloRaw.includes("mvdeo mascotas")
     )
       continue;
+
     const skuRaw = await fila.$eval("td:nth-child(4)", (el) =>
       el.textContent.replace(/\s+/g, "").toLowerCase()
     );
@@ -236,6 +245,7 @@ async function procesarSku(page, sku) {
     resumenML,
     resumenWeb,
     RegaloAEleccion,
+    titulo,
   };
 }
 module.exports = { procesarSku, login };

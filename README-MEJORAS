@@ -1,3 +1,4 @@
 Leer comentarios agregados en el anterior commit, ademas
+
 - Es necesario que el bot verifique la celda de dia antes de empezar el proceso
-- que  verifique que los input de Descripcion, titulo, y foto tengan contenido
+- que verifique que los input de Descripcion, y foto tengan contenido

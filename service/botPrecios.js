@@ -55,7 +55,9 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         resumenML = "",
         resumenWeb = "",
         RegaloAEleccion = "No",
+        titulo = "",
       } = (await procesarSku(page, sku)) || {};
+      console.log("TITULO:", titulo);
 
       const filaIndex = skus.indexOf(sku) + 2; // +2: porque header en fila 1
       // Los dos de abajo son probablemente inutiles
@@ -65,9 +67,12 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
       const fechaHoy = new Date().toLocaleDateString();
       await actualizarCelda(auth, spreadsheetId, rangoFecha, fechaHoy);
 
-      // Actualizar columna D con resumen
-      const rangoResumen = `${hoja}!D${filaIndex}`;
-      const rangoStock = `${hoja}!E${filaIndex}`;
+      await actualizarCelda(
+        auth,
+        spreadsheetId,
+        `${hoja}!A${filaIndex}`,
+        titulo
+      );
 
       await actualizarCelda(
         auth,

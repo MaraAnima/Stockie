@@ -4,7 +4,11 @@ const http = require("http");
 const { google } = require("googleapis");
 const logger = require(path.resolve(__dirname, "documentation", "logger"));
 
-const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
+const SCOPES = [
+  "https://www.googleapis.com/auth/spreadsheets",
+  "https://www.googleapis.com/auth/drive.file",
+];
+
 const TOKEN_PATH = path.resolve(__dirname, "..", "token.json");
 const CREDENTIALS_PATH = path.resolve(__dirname, "..", "credentials.json");
 
@@ -19,14 +23,22 @@ async function authorize() {
   );
 
   if (fs.existsSync(TOKEN_PATH)) {
-    const token = JSON.parse(fs.readFileSync(TOKEN_PATH, "utf8"));
-    oAuth2Client.setCredentials(token);
-    return oAuth2Client;
-  }
+    try {
+      const token = JSON.parse(fs.readFileSync(TOKEN_PATH, "utf8"));
+      oAuth2Client.setCredentials(token);
 
-  const token = await getNewToken(oAuth2Client);
-  oAuth2Client.setCredentials(token);
-  return oAuth2Client;
+      // Test rápido para ver si el token funciona
+      const sheets = google.sheets({ version: "v4", auth: oAuth2Client });
+      await sheets.spreadsheets.get({
+        spreadsheetId: process.env.SPREADSHEET_ID,
+      });
+      return oAuth2Client;
+    } catch (err) {
+      logger.warn("Token inválido o sin acceso, se regenerará");
+      fs.unlinkSync(TOKEN_PATH);
+    }
+  }
+  return getNewToken(oAuth2Client);
 }
 
 function getNewToken(oAuth2Client) {
