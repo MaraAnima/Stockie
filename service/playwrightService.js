@@ -174,10 +174,8 @@ async function procesarSku(page, sku) {
       "formula natural",
       "multivet",
     ];
-    // Resumen
     await page.waitForSelector('li[role="option"] span'); // aseguramos que cargue
 
-    // Obtenemos todas las opciones visibles
     const opciones = await page.$$eval('li[role="option"] span', (spans) =>
       spans.map((s) => s.textContent.trim().toLowerCase())
     );

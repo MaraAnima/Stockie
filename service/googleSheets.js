@@ -27,7 +27,6 @@ async function authorize() {
       const token = JSON.parse(fs.readFileSync(TOKEN_PATH, "utf8"));
       oAuth2Client.setCredentials(token);
 
-      // Test rápido para ver si el token funciona
       const sheets = google.sheets({ version: "v4", auth: oAuth2Client });
       await sheets.spreadsheets.get({
         spreadsheetId: process.env.SPREADSHEET_ID,
@@ -91,5 +90,17 @@ async function actualizarCelda(auth, spreadsheetId, rango, valor) {
     resource,
   });
 }
+async function obtenerValorCelda(auth, spreadsheetId, rango) {
+  const sheets = google.sheets({ version: "v4", auth });
+  const res = await sheets.spreadsheets.values.get({
+    spreadsheetId,
+    range: rango, // Ejemplo: "Hoja1!C2"
+  });
+  const values = res.data.values;
+  if (values && values.length > 0 && values[0].length > 0) {
+    return values[0][0];
+  }
+  return "";
+}
 
-module.exports = { authorize, actualizarCelda };
+module.exports = { authorize, actualizarCelda, obtenerValorCelda };

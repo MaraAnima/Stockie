@@ -7,7 +7,7 @@ const { procesarSku, login } = require(path.resolve(
   __dirname,
   "playwrightService"
 ));
-const { authorize, actualizarCelda } = require(path.resolve(
+const { authorize, actualizarCelda, obtenerValorCelda } = require(path.resolve(
   __dirname,
   "googleSheets"
 ));
@@ -20,6 +20,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
   __dirname,
   "excelService"
 ));
+
 (async () => {
   try {
     const browser = await chromium.launch({ headless: false });
@@ -50,6 +51,15 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
     await login(page);
 
     for (const sku of skus) {
+      const filaIndex = skus.indexOf(sku) + 2; // +2: porque header en fila 1
+
+      const rangoDia = `${hoja}!C${filaIndex}`;
+      const valorDia = await obtenerValorCelda(auth, spreadsheetId, rangoDia);
+
+      if (valorDia && valorDia.trim() !== "") {
+        logger.info(`SKU ${sku} ya procesado el día ${valorDia}, se omite.`);
+        continue;
+      }
       const {
         resumenCompleto = "",
         resumenML = "",
@@ -58,9 +68,6 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         titulo = "",
       } = (await procesarSku(page, sku)) || {};
       console.log("TITULO:", titulo);
-
-      const filaIndex = skus.indexOf(sku) + 2; // +2: porque header en fila 1
-      // Los dos de abajo son probablemente inutiles
 
       // Actualizar columna C con fecha
       const rangoFecha = `${hoja}!C${filaIndex}`;
