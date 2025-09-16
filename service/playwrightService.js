@@ -140,6 +140,36 @@ async function procesarSku(page, sku) {
     } else {
       logger.info("🔕 No se activan checkboxes para este enlace.");
     }
+    await page.waitForSelector("#ManageInventoryMethodId");
+    const options = await page.$$("#ManageInventoryMethodId option");
+    let found = false;
+    for (const option of options) {
+      const text = await option.textContent();
+      if (text.includes("Seguimiento de inventario")) {
+        const value = await option.getAttribute("value");
+        const selectedValue = await page.$eval(
+          "#ManageInventoryMethodId",
+          (el) => el.value
+        );
+        if (selectedValue !== value) {
+          await page.selectOption("#ManageInventoryMethodId", value);
+          logger.info(
+            '✅ Se seleccionó "Seguimiento de inventario" en el método de inventario.'
+          );
+        } else {
+          logger.info(
+            '✅ "Seguimiento de inventario" ya estaba seleccionado en el método de inventario.'
+          );
+        }
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      logger.info(
+        '⚠️ No se encontró la opción "Seguimiento de inventario" en el método de inventario.'
+      );
+    }
 
     // Mercado Libre publicaciones
     const selectorContenedor = "#productsMeliList-grid_wrapper";
