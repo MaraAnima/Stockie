@@ -172,7 +172,7 @@ async function procesarSku(page, sku) {
     }
 
     // Mercado Libre publicaciones
-    const selectorContenedor = "#productsMeliList-grid_wrapper";
+    const selectorContenedor = "#productsList-grid";
     await page.waitForSelector(`${selectorContenedor} tbody`);
     const filasML = await page.$$(`${selectorContenedor} tbody tr`);
 
