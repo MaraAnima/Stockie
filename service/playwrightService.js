@@ -22,6 +22,7 @@ async function procesarSku(page, sku) {
   let resumenML = "";
   let resumenWeb = "";
   let titulo = "";
+  let resumenesPorEnlace = [];
 
   logger.info(`\n🔎 Buscando SKU: ${sku}`);
   const skuNormalized = String(sku).replace(/\s+/g, "").toLowerCase();
@@ -257,6 +258,11 @@ async function procesarSku(page, sku) {
       : "No está publicado en la web";
 
     resumenCompleto = `${resumenML} y ${resumenWeb}`;
+    resumenesPorEnlace.push(
+      `🔗 Publicación ${
+        i + 1
+      }: ${resumenML} | ${resumenWeb} | Regalo a elección: ${RegaloAEleccion}`
+    );
 
     logger.info(`Resumen completo: ${resumenCompleto}`);
 
@@ -274,6 +280,7 @@ async function procesarSku(page, sku) {
     resumenWeb,
     RegaloAEleccion,
     titulo,
+    resumenesPorEnlace,
   };
 }
 module.exports = { procesarSku, login };

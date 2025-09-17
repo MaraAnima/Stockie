@@ -23,7 +23,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
 
 (async () => {
   try {
-    const browser = await chromium.launch({ headless: false });
+    const browser = await chromium.launch({ headless: false, slowMo: 50 });
     const page = await browser.newPage();
 
     const urlExcelPublico = process.env.URL_EXCEL_PUBLICO;
@@ -66,8 +66,41 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         resumenWeb = "",
         RegaloAEleccion = "No",
         titulo = "",
+        resumenesPorEnlace = [],
       } = (await procesarSku(page, sku)) || {};
       console.log("TITULO:", titulo);
+
+      // 🟡 Flags para detectar si alguna publicación cumple cada condición
+      let algunaEnWeb = false;
+      let algunaEnML = false;
+      let algunaConRegalo = false;
+
+      // 🟢 Evaluar cada resumen individual para detectar flags
+      for (const resumen of resumenesPorEnlace) {
+        if (resumen.includes("está publicado en la web")) algunaEnWeb = true;
+        if (
+          resumen.includes("publicado correctamente en Mercado Libre") ||
+          resumen.includes("activas") ||
+          resumen.includes("activo en Mercado Libre")
+        ) {
+          algunaEnML = true;
+        }
+        if (resumen.includes("Regalo a elección: Si")) algunaConRegalo = true;
+      }
+
+      // 🟢 Construir el resumen general
+      let resumenCompletoFinal = "Este producto ";
+      const partes = [];
+
+      if (algunaEnWeb) partes.push("está en Web");
+      if (algunaEnML) partes.push("está en Mercado Libre y en web");
+      if (algunaConRegalo) partes.push("tiene regalo a elección");
+
+      if (partes.length === 0) {
+        resumenCompletoFinal += "no está ni en Web ni en Mercado Libre";
+      } else {
+        resumenCompletoFinal += partes.join(" y ");
+      }
 
       // Actualizar columna C con fecha
       const rangoFecha = `${hoja}!C${filaIndex}`;
@@ -85,8 +118,8 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         auth,
         spreadsheetId,
         `${hoja}!D${filaIndex}`,
-        resumenWeb.includes("No se encontró publicación") ||
-          resumenWeb.includes("No está publicado")
+        resumenesPorEnlace.includes("No se encontró publicación") ||
+          resumenesPorEnlace.includes("No está publicado en la web")
           ? "No"
           : "Si"
       );
@@ -100,8 +133,8 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         auth,
         spreadsheetId,
         `${hoja}!F${filaIndex}`,
-        resumenML.includes("No") ||
-          resumenML.includes(
+        resumenesPorEnlace.includes("No está publicado en Mercado Libre") ||
+          resumenesPorEnlace.includes(
             "Todas las publicaciones están bajo revisión en Mercado Libre"
           )
           ? "No"
@@ -111,7 +144,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         auth,
         spreadsheetId,
         `${hoja}!G${filaIndex}`,
-        resumenCompleto
+        resumenCompletoFinal
       );
       logger.info(`✅ Datos actualizados en ${sku}`);
     }
