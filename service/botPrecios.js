@@ -23,7 +23,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
 
 (async () => {
   try {
-    const browser = await chromium.launch({ headless: false, slowMo: 50 });
+    const browser = await chromium.launch({ headless: false, slowMo: 75 });
     const page = await browser.newPage();
 
     const urlExcelPublico = process.env.URL_EXCEL_PUBLICO;
@@ -96,11 +96,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
       if (algunaEnML) partes.push("está en Mercado Libre y en web");
       if (algunaConRegalo) partes.push("tiene regalo a elección");
 
-      if (partes.length === 0) {
-        resumenCompletoFinal += "no está ni en Web ni en Mercado Libre";
-      } else {
-        resumenCompletoFinal += partes.join(" y ");
-      }
+      resumenCompletoFinal += partes.join(", ") + ".";
 
       // Actualizar columna C con fecha
       const rangoFecha = `${hoja}!C${filaIndex}`;
@@ -144,7 +140,11 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         auth,
         spreadsheetId,
         `${hoja}!G${filaIndex}`,
-        resumenCompletoFinal
+        resumenCompletoFinal.includes(
+          "No se encontró publicación ni en la web ni en Mercado Libre"
+        )
+          ? "No se encuentra ni en Web ni en Mercado Libre"
+          : resumenCompletoFinal
       );
       logger.info(`✅ Datos actualizados en ${sku}`);
     }
