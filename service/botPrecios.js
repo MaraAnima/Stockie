@@ -67,6 +67,7 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         RegaloAEleccion = "No",
         titulo = "",
         resumenesPorEnlace = [],
+        descripcionCompleta = "",
       } = (await procesarSku(page, sku)) || {};
       console.log("TITULO:", titulo);
 
@@ -96,11 +97,15 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
       if (algunaEnML) partes.push("está en Mercado Libre y en web");
       if (algunaConRegalo) partes.push("tiene regalo a elección");
 
+      if (!algunaEnWeb) partes.push("No está publicado en la web");
+      if (!algunaEnML) partes.push("No está en Mercado Libre");
+      if (!algunaConRegalo) partes.push("No tiene regalo a elección");
       resumenCompletoFinal += partes.join(", ") + ".";
 
       // Actualizar columna C con fecha
       const rangoFecha = `${hoja}!C${filaIndex}`;
       const fechaHoy = new Date().toLocaleDateString();
+      console.log(resumenCompletoFinal);
       await actualizarCelda(auth, spreadsheetId, rangoFecha, fechaHoy);
 
       await actualizarCelda(
@@ -114,11 +119,14 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         auth,
         spreadsheetId,
         `${hoja}!D${filaIndex}`,
-        resumenesPorEnlace.includes("No se encontró publicación") ||
-          resumenesPorEnlace.includes("No está publicado en la web")
+
+        resumenCompleto.includes(
+          "No se encontró publicación ni en la web ni en Mercado Libre"
+        )
           ? "No"
           : "Si"
       );
+
       await actualizarCelda(
         auth,
         spreadsheetId,
@@ -129,10 +137,14 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
         auth,
         spreadsheetId,
         `${hoja}!F${filaIndex}`,
-        resumenesPorEnlace.includes("No está publicado en Mercado Libre") ||
-          resumenesPorEnlace.includes(
+        resumenCompleto.includes("No está en Mercado Libre") ||
+          resumenCompleto.includes(
             "Todas las publicaciones están bajo revisión en Mercado Libre"
-          )
+          ) ||
+          resumenCompleto.includes(
+            "No se encontró publicación ni en la web ni en Mercado Libre"
+          ) ||
+          resumenCompleto.includes("No activo en ML por que es")
           ? "No"
           : "Si"
       );
@@ -144,10 +156,17 @@ const { descargarExcel, obtenerSkusDesdeArchivoLocal } = require(path.resolve(
           "No se encontró publicación ni en la web ni en Mercado Libre"
         )
           ? "No se encuentra ni en Web ni en Mercado Libre"
-          : resumenCompletoFinal
+          : resumenCompleto
+      );
+      await actualizarCelda(
+        auth,
+        spreadsheetId,
+        `${hoja}!H${filaIndex}`,
+        descripcionCompleta
       );
       logger.info(`✅ Datos actualizados en ${sku}`);
     }
+
     // hay que agregar para la primera celda el titulo del producto para saber que se esta actualizando
 
     await browser.close();

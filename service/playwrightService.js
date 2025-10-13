@@ -23,7 +23,9 @@ async function procesarSku(page, sku) {
   let resumenWeb = "";
   let titulo = "";
   let resumenesPorEnlace = [];
-
+  let descripcionML = null;
+  let descripcionLarga = null;
+  let descripcionCompleta = null;
   logger.info(`\n🔎 Buscando SKU: ${sku}`);
   const skuNormalized = String(sku).replace(/\s+/g, "").toLowerCase();
 
@@ -82,6 +84,7 @@ async function procesarSku(page, sku) {
       RegaloAEleccion: "No",
     };
   }
+
   const baseUrl = "https://turacion.com/Admin/Product/List";
 
   let indicesConRegalo = [];
@@ -92,6 +95,54 @@ async function procesarSku(page, sku) {
       page.waitForNavigation({ waitUntil: "networkidle" }),
       page.goto(urlParaNavegar),
     ]);
+
+    try {
+      const frame = page.frameLocator("#FullDescription_ifr");
+      const body = frame.locator("body#tinymce");
+      await body.waitFor({ state: "visible", timeout: 5000 });
+
+      const innerHTML = await body.evaluate((el) => el.innerHTML.trim());
+      const innerText = await body.evaluate((el) => el.innerText.trim());
+
+      const descripcionVacia =
+        innerHTML === "" || innerHTML === "<p><br></p>" || innerText === "";
+
+      if (descripcionVacia) {
+        descripcionLarga = "No tiene descripción";
+      } else {
+        descripcionLarga = "Tiene descripción";
+      }
+    } catch (err) {
+      logger.warn(
+        `⚠️ No se pudo verificar el contenido de TinyMCE para SKU ${sku}: ${err.message}`
+      );
+    }
+    try {
+      const descripcionCorta = await page.$eval("#ShortDescription", (el) =>
+        el.value.trim()
+      );
+      if (!descripcionCorta || descripcionCorta === "") {
+        descripcionML = "No tiene descripcionML";
+      } else {
+        descripcionML = "Tiene descripcionML";
+      }
+    } catch (err) {
+      logger.warn(
+        `⚠️ No se pudo verificar la descripción corta para SKU ${sku}: ${err.message}`
+      );
+    }
+    if (
+      descripcionML === "No tiene descripcionML" ||
+      descripcionLarga === "No tiene descripción"
+    ) {
+      descripcionCompleta = "No tiene descripción completa";
+    } else if (
+      descripcionML === "Tiene descripcionML" &&
+      descripcionLarga === "Tiene descripción"
+    ) {
+      descripcionCompleta = "Tiene descripción completa";
+    }
+    logger.info(`Descripción: ${descripcionCompleta}`);
     const filasRegalo = await page.$$(
       '#productattributemappings-grid tbody tr[role="row"]'
     );
@@ -205,6 +256,7 @@ async function procesarSku(page, sku) {
       "formula natural",
       "multivet",
     ];
+    // Categoria
     await page.waitForSelector('li[role="option"] span'); // aseguramos que cargue
 
     const opciones = await page.$$eval('li[role="option"] span', (spans) =>
@@ -281,6 +333,7 @@ async function procesarSku(page, sku) {
     RegaloAEleccion,
     titulo,
     resumenesPorEnlace,
+    descripcionCompleta,
   };
 }
 module.exports = { procesarSku, login };
