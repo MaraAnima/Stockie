@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Auditoría de Stock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; margin: 24px; }
+      h1 { margin-bottom: 8px; }
+      .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+      textarea, input[type="text"], input[type="date"] { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; }
+      button { padding: 10px 14px; border: 0; border-radius: 10px; background: #111827; color: white; cursor: pointer; }
+      button:disabled { background: #9ca3af; cursor: not-allowed; }
+      table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+      th, td { border-bottom: 1px solid #eee; padding: 8px; text-align: left; font-size: 14px; vertical-align: middle; }
+      .row-ok { background: #f0fdf4; }
+      .row-warn { background: #fffbeb; }
+      .row-error { background: #fef2f2; }
+      .muted { color:#6b7280; font-size: 12px; }
+      .flex { display:flex; gap:12px; align-items:center; flex-wrap: wrap; }
+      .actions button { padding:6px 10px; border-radius: 8px; font-size: 12px; }
+      .secondary { background:#334155; }
+      .danger { background:#b91c1c; }
+    </style>
+  </head>
+  <body>
+    <h1>Auditoría de Stock</h1>
+    <p class="muted">Pegá SKUs <b>uno por línea</b>. Elegí el “día” de la revisión.</p>
+
+    <div class="card">
+      <div class="flex">
+        <div>
+          <label>Día de revisión</label>
+          <input id="day" type="date" />
+        </div>
+        <div>
+          <label class="muted"> </label><br />
+          <button id="loadBtn" class="secondary">Cargar historial</button>
+        </div>
+      </div>
+
+      <div style="display:grid; gap:12px; margin-top:12px;">
+        <label>SKUs (uno por línea)</label>
+        <textarea id="skus" rows="6" placeholder="5201&#10;5202&#10;15205"></textarea>
+
+        <div class="flex">
+          <label><input id="readonly" type="checkbox" /> Modo lectura (no aplicar cambios)</label>
+          <span class="muted" id="predeterminado"></span>
+        </div>
+
+        <div class="flex">
+          <button id="runBtn">Ejecutar auditoría</button>
+          <button id="exportBtn" disabled>Exportar CSV</button>
+          <span id="status" class="muted"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Resultados</h3>
+      <div class="muted" id="summary"></div>
+      <table id="results">
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Título</th>
+            <th>Web</th>
+            <th>ML</th>
+            <th>Regalo</th>
+            <th>Resumen</th>
+            <th>PDC</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script>
+      const dayEl = document.getElementById("day");
+      const runBtn = document.getElementById("runBtn");
+      const loadBtn = document.getElementById("loadBtn");
+      const exportBtn = document.getElementById("exportBtn");
+      const skusEl = document.getElementById("skus");
+      const readonlyEl = document.getElementById("readonly");
+      const statusEl = document.getElementById("status");
+      const tbody = document.querySelector("#results tbody");
+      const summaryEl = document.getElementById("summary");
+      const predeterminadoEl = document.getElementById("predeterminado");
+
+      let lastRows = [];
+      let currentDate = "";
+
+      fetch("/config")
+        .then((r) => r.json())
+        .then((cfg) => {
+          readonlyEl.checked = !!cfg.readOnlyDefault;
+          predeterminadoEl.textContent = "Predeterminado: " + (cfg.readOnlyDefault ? "Sí" : "No");
+          const today = cfg.today || new Date().toISOString().slice(0,10);
+          currentDate = today;
+          dayEl.value = today;
+          loadHistory(today);
+        });
+
+      function rowClass(r){
+        const errs = [];
+        if(!r.web) errs.push('web');
+        if(!r.ml) errs.push('ml');
+        if(!r.regalo) errs.push('regalo');
+        if (errs.length === 0) return 'row-ok';
+        if (errs.length === 3) return 'row-error';
+        return 'row-warn';
+      }
+
+      function render(rows){
+        tbody.innerHTML = rows.map(r => `
+          <tr class="${rowClass(r)}">
+            <td>${r.sku}</td>
+            <td>${r.titulo || ''}</td>
+            <td>${r.web ? 'Si' : 'No'}</td>
+            <td>${r.ml ? 'Si' : 'No'}</td>
+            <td>${r.regalo ? 'Si' : 'No'}</td>
+            <td>${r.resumen || ''}</td>
+            <td>${r.descripcionCompleta || ''}</td>
+            <td class="actions">
+              <button class="secondary" data-action="recheck" data-sku="${r.sku}">Re-chequear</button>
+              <button class="danger" data-action="delete" data-sku="${r.sku}">Eliminar</button>
+            </td>
+          </tr>
+        `).join('');
+        const ok = rows.filter(r => r.web && r.ml).length;
+        summaryEl.textContent = `${ok}/${rows.length} con Web y ML OK`;
+        exportBtn.disabled = rows.length === 0;
+      }
+
+      async function loadHistory(dateStr){
+        const res = await fetch(`/history?date=${encodeURIComponent(dateStr)}`);
+        const data = await res.json();
+        currentDate = data.date;
+        lastRows = data.rows || [];
+        render(lastRows);
+      }
+
+       dayEl.onchange = () => {
+    const d = dayEl.value;
+    lastRows = [];
+    render(lastRows);         
+    loadHistory(d);            
+  };
+
+      loadBtn.onclick = () => {
+        loadHistory(dayEl.value || currentDate);
+      };
+
+runBtn.onclick = async () => {
+  const skusText = skusEl.value.trim();
+  if (!skusText) {
+    alert("Ingresá al menos un SKU (uno por línea)");
+    return;
+  }
+
+  const date = dayEl.value || currentDate; 
+  statusEl.textContent = "Iniciando auditoría...";
+  runBtn.disabled = true;
+  exportBtn.disabled = true;
+
+  try {
+    const res = await fetch("/run", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        skus: skusText,                
+        readOnly: readonlyEl.checked,
+        date
+      }),
+    });
+
+    if (!res.ok || !res.body) {
+      throw new Error("No se pudo iniciar la ejecución");
+    }
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder("utf-8");
+    let buf = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+
+      
+      let idx;
+      while ((idx = buf.indexOf("\n")) >= 0) {
+        const line = buf.slice(0, idx).trim();
+        buf = buf.slice(idx + 1);
+        if (!line) continue;
+
+        try {
+          const msg = JSON.parse(line);
+
+          if (msg.type === "progress") {
+            const percent = ((msg.current / msg.total) * 100).toFixed(0);
+            statusEl.textContent = `🔄 Procesando SKU ${msg.sku} (${msg.current}/${msg.total}) — ${percent}%`;
+          }
+
+          if (msg.type === "done") {
+            lastRows = msg.rows || [];
+            currentDate = msg.date || currentDate;
+            render(lastRows);
+            statusEl.textContent = `✅ Auditoría completada (${lastRows.length} SKUs)`;
+          }
+
+          if (msg.type === "error") {
+            console.error(msg.message);
+            statusEl.textContent = "❌ Error: " + (msg.message || "ejecución");
+          }
+        } catch (e) {
+          
+        }
+      }
+    }
+
+    
+    const tail = buf.trim();
+    if (tail) {
+      try {
+        const msg = JSON.parse(tail);
+        if (msg.type === "done") {
+          lastRows = msg.rows || [];
+          currentDate = msg.date || currentDate;
+          render(lastRows);
+          statusEl.textContent = `✅ Auditoría completada (${lastRows.length} SKUs)`;
+        }
+      } catch {}
+    }
+  } catch (e) {
+    console.error(e);
+    alert(e.message || "Error al ejecutar");
+    statusEl.textContent = "❌ Error al ejecutar";
+  } finally {
+    runBtn.disabled = false;
+    exportBtn.disabled = lastRows.length === 0;
+  }
+};
+
+
+      exportBtn.onclick = () => {
+        const date = dayEl.value || currentDate;
+        const a = document.createElement("a");
+        a.href = "/export?date=" + encodeURIComponent(date);
+        a.download = `auditoria_${date}.csv`;
+        a.click();
+      };
+
+    
+      tbody.onclick = async (ev) => {
+        const btn = ev.target.closest("button[data-action]");
+        if(!btn) return;
+        const action = btn.dataset.action;
+        const sku = btn.dataset.sku;
+        const date = dayEl.value || currentDate;
+
+        if(action === "recheck"){
+          btn.disabled = true;
+          try{
+            const res = await fetch('/recheck', {
+              method:'POST',
+              headers:{ 'Content-Type':'application/json' },
+              body: JSON.stringify({ sku, date })
+            });
+            if(!res.ok) throw new Error('No se pudo re-chequear');
+           
+            await loadHistory(date);
+          } catch(e){
+            alert(e.message || 'Error');
+          } finally{
+            btn.disabled = false;
+          }
+        }
+
+        if(action === "delete"){
+          if(!confirm(`Eliminar registro de SKU ${sku} del día ${date}?`)) return;
+          btn.disabled = true;
+          try{
+            const res = await fetch(`/result?date=${encodeURIComponent(date)}&sku=${encodeURIComponent(sku)}`, {
+              method:'DELETE'
+            });
+            if(!res.ok) throw new Error('No se pudo eliminar');
+            const data = await res.json();
+            lastRows = data.rows || [];
+            render(lastRows);
+          } catch(e){
+            alert(e.message || 'Error');
+          } finally{
+            btn.disabled = false;
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

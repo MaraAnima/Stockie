@@ -1,0 +1,137 @@
+{
+  "cookies": [
+    {
+      "name": ".Nop.Antiforgery",
+      "value": "CfDJ8Ft_cBR7NdtAo3chV6_00ltjCoLJ-n2pALyNWK7AzgdcEBAJnoUbJZ86EsTR8x7Ba--O2Pb0hSwTl8N7zKLgmJruCLmROFZeRW9rbnuBxt2iN9t2w9m3u-TyZsl6qpcd9KsD33jCpHrxKRqyYBS7vx8",
+      "domain": "turacion.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "_gcl_au",
+      "value": "1.1.1798079824.1761065460",
+      "domain": ".turacion.com",
+      "path": "/",
+      "expires": 1768841460,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_fbp",
+      "value": "fb.1.1761065460123.221644546624331140",
+      "domain": ".turacion.com",
+      "path": "/",
+      "expires": 1768841460,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "test_cookie",
+      "value": "CheckForPermission",
+      "domain": ".doubleclick.net",
+      "path": "/",
+      "expires": 1761066360.198434,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_gid",
+      "value": "GA1.2.708092681.1761065460",
+      "domain": ".turacion.com",
+      "path": "/",
+      "expires": 1761151860,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gat_UA-154563778-1",
+      "value": "1",
+      "domain": ".turacion.com",
+      "path": "/",
+      "expires": 1761065520,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.627569998.1761065460",
+      "domain": ".turacion.com",
+      "path": "/",
+      "expires": 1795625460.25422,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_PR3MPZW25B",
+      "value": "GS2.1.s1761065460$o1$g0$t1761065460$j60$l0$h0",
+      "domain": ".turacion.com",
+      "path": "/",
+      "expires": 1795625460.747929,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ar_debug",
+      "value": "1",
+      "domain": ".www.google-analytics.com",
+      "path": "/",
+      "expires": 1768841460.831385,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": ".Nop.Authentication",
+      "value": "CfDJ8Ft_cBR7NdtAo3chV6_00lvVEhorH4qevFoqtGktEEnBT8Df8Nh7IOM2jE_kjh4VxgX_3eYpI_MEIF84JOFxz7mBxVeKQ2JGI2L2CrbkYMacWg16sZaSxxFxOQ49gBHlYz8vwrcV6e6isjm7CBkqcIKrs6p5PzlgkPR80Nl3G1mkbZ9HE2a-2P8jR0BPWDDNRNKKfKNayx8gdDxT0HV2AUxcq2PqncBSfkkPBXw84clgydAM0-CMRmrqmgoKZY7nGnohNAGzRgBRMaBoyORC8PssGcuYHAZk5iZLcmacphjcii2FieUBo0Un9kbDw_vbQ8H9nGmXzosuVY88g7aONtZQJT9wD8Co01CJDUHpbPpEvkzZ4i4v2_03N-P8Ow8YQxCafPHBSZQAt49HXSTGgoRM5KitVh-gkJgBRNZN710VWED3MMPeYszmvzW9ZZGAq_VOMf5t2KnbY1qkDe7q9LLyy1RNATTJ0Lbe7WtOCWsh85rEnB6ecAXc0OW2Ew9gKMW3SwEeMWEdOULY4XqTOwI",
+      "domain": "turacion.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": ".Nop.Customer",
+      "value": "78e35d87-0b79-466c-a55d-ab14df76b34a",
+      "domain": "turacion.com",
+      "path": "/",
+      "expires": 1792601462.676587,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://turacion.com",
+      "localStorage": [
+        {
+          "name": "lastExternalReferrer",
+          "value": "empty"
+        },
+        {
+          "name": "_gcl_ls",
+          "value": "{\"schema\":\"gcl\",\"version\":1,\"gcl_ctr\":{\"value\":{\"value\":0,\"timeouts\":0,\"creationTimeMs\":1761065460060},\"expires\":1768841460060}}"
+        },
+        {
+          "name": "lastExternalReferrerTime",
+          "value": "1761065460118"
+        },
+        {
+          "name": "topicsLastReferenceTime",
+          "value": "1761065460734"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,636 @@
+{
+  "days": {
+    "2025-10-21": [
+      {
+        "sku": "5201",
+        "titulo": "nyd ancestral feline kitten 1.5kg + raton + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "5202",
+        "titulo": "pelotas de luz x2 unid pa 5202",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "15205",
+        "titulo": "nyd ancestral grain feline gato castrado 1,5kg + ratón",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "75205",
+        "titulo": "nyd ancestral gato castrado 7.5 kg + manta",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "15201",
+        "titulo": "nyd prime feline  gatitos kitten 1,5 kg + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "NYDG",
+        "titulo": "nyd grain free gato adulto 1.5 kg + rascador",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "752028",
+        "titulo": "nyd prime feline  gato adulto 7,5 kg + rascador",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "15205B",
+        "titulo": "nyd prime feline gato castrado 1.5 kg + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "75205B",
+        "titulo": "nyd prime feline  gato castrado 7,5 kg + salsas",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "15306",
+        "titulo": "nyd ocean gato castrado 1.5 kg + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "75306",
+        "titulo": "nyd ocean gato castrado 7.5 kg + rascador",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "75012",
+        "titulo": "nyd quinoa feline urinary pato  7,5 kg + salsa pouch",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "114801+2",
+        "titulo": "connie adulto 22 +2 promo",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "11102+2",
+        "titulo": "lager adulto 22kg + pala dosificadora + comedero de regalo",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "114001",
+        "titulo": "wits perro adulto 25kg+ patas de pollo",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "50306",
+        "titulo": "nyd ancestral selection perro cachorro razas medianas 15kg + manta",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "50307",
+        "titulo": "nyd ancestral selection perro cachorro razas grandes y gigantes 15kg + localizador",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "25104",
+        "titulo": "nyd ancestral perro adulto mini 2.5kg + shampoo",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "50308",
+        "titulo": "nyd ancestral selection perro adulto razas medianas 15kg + localizador",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "50309",
+        "titulo": "nyd ancestral selection perro adulto razas gigantes 15kg + localizador",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "25111",
+        "titulo": "nyd ancestral perro adulto senior mini 2.5kg + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "25106",
+        "titulo": "nyd prime canine adult medium 2,5kg + pala",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "101106",
+        "titulo": "nyd prime canine pollo y granada adult medium + comedero + pala",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "101107",
+        "titulo": "nyd prime canine pollo y granada adult maxi + pala + comedero",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "25309",
+        "titulo": "nyd ocean perro cachorro razas pequeñas y mini 2.5 kg + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "101311",
+        "titulo": "nyd ocean perros adultos medianos y grandes 10 kg + pala + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "25300",
+        "titulo": "nyd ocean perros adultos razas pequeñas y mini 2.5 kg + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "5270",
+        "titulo": "dog chow perros adultos razas pequeñas 21 kg + envío",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "633",
+        "titulo": "excellent cat adulto 7.5kg + salsas + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "5510",
+        "titulo": "m-line gato castrado super premium 10,1 kg + snacks",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "3070",
+        "titulo": "m-line perros adultos 15+2.5kg gratis + comedero + pala",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "813",
+        "titulo": "vittamax gato castrados pollo y arroz 10 kg + salsa pouch",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "VITTAMAX810",
+        "titulo": "vittamax natural 15kg + comedero de regalo",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "155",
+        "titulo": "previcox 227mg antiinflamatorio 10 comprimidos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "CL1",
+        "titulo": "clorhexidin plus 100ml",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "245",
+        "titulo": "snack everest the farm taste estofado carne, calabaza y guisante 245grs",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "OLTRANS7",
+        "titulo": "oltrans flex  condro-articular 7 comprimidos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "29330",
+        "titulo": "aurix therapy 25ml - solución otodérmica para perros y gatos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "45663",
+        "titulo": "pipeta shooter max gatos 6.25 a 12.5 kg",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "4587",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "463",
+        "titulo": "pipeta shooter total gato 4-8 kg (0.8ml)",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "5124",
+        "titulo": "pastilla antipulgas y garrapatas cidar 12 - 25 kg",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "519",
+        "titulo": "ocubiotic con esteroides 5ml",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "552274",
+        "titulo": "algen 60 blister 10 comprimidos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "BAS1",
+        "titulo": "basken  suspension 15ml",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "BAS3",
+        "titulo": "antiparasitario basken doble 40 - perros grandes",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "33007",
+        "titulo": "spray bactrovet 440ml cicatrizante curabicheras bactrovet plata",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "651518",
+        "titulo": "pipeta feline full spot labyes +5k",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "65891",
+        "titulo": "serenex feline spray 25ml",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "PIMO",
+        "titulo": "pimocard 5mg - 20 comprimidos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "872",
+        "titulo": "shampoo seco daryl",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "GEL 1",
+        "titulo": "virbac nutri-plus 120g gel suplemento nutricional y energetico",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "NITRO SULFA",
+        "titulo": "nitro sulfa aviar 100ml",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "INC",
+        "titulo": "rascador semi ondulado ba-1794/ce-139 - increibles",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "1147",
+        "titulo": "trihepat 100ml suspensión protector y regenerador",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "V3",
+        "titulo": "vitaflex 30 compr. condroprotector suplemento",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "VITATON",
+        "titulo": "vitaton 30 comp",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "POW600",
+        "titulo": "antipulgas power comprimido gatos 6 - 12kg perros de 10 - 20kg 600mg",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "6102",
+        "titulo": "equilibrio perro canine hypoalergenic 2 kg + comedero",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "6075",
+        "titulo": "equilibrio canine cardiac 7,5 kg + shampoo",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "113632",
+        "titulo": "biofresh adulto razas medias 10,1kg cerdo y ananá + regalo a elección",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "3675",
+        "titulo": "biofresh perro adulto razas medianas 3 kg + patas de pollo",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "3672",
+        "titulo": "biofresh perro adultos pequeños 3 kg + comedero",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "113338",
+        "titulo": "biofresh cachorro raza medias 10 kg + patas de pollo + combo districo",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "123437",
+        "titulo": "biofresh gato castrado 7,5kg pollo + pelota + snack",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "618413",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "119003",
+        "titulo": "gran plus dog cachorro med/gde 3kg (carne y arroz)",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "125024",
+        "titulo": "gran plus alimento adulto castrado 10.1kg (salmon y arroz)",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "118029",
+        "titulo": "guabi perro adulto sobre peso med/gra 10,1kg  + patas de pollo",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "720003",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      }
+    ]
+  }
+}
