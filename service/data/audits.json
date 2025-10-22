@@ -631,6 +631,449 @@
         "resumen": "No está en Web, No está en ML, Sin regalo",
         "descripcionCompleta": "No tiene descripción completa"
       }
+    ],
+    "2025-10-22": [
+      {
+        "sku": "2174-1",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "2175-1",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "BS08",
+        "titulo": "sanitario bentonita esferas bio stones 8 kg varios aromas + ratón",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "PC12",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "29067",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "3907",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "10050",
+        "titulo": "primocao original (negra) 20 + 2kg + manta",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "111655",
+        "titulo": "primocao original 25 kg  + orejas",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "10040",
+        "titulo": "primocao perro adulto original 7 kg",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "213",
+        "titulo": "farmaconal 100mg 20 comprimidos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "23003",
+        "titulo": "effinol spray 100ml",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "245",
+        "titulo": "snack everest the farm taste estofado carne, calabaza y guisante 245grs",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "OLTRANS7",
+        "titulo": "oltrans flex  condro-articular 7 comprimidos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "29330",
+        "titulo": "aurix therapy 25ml - solución otodérmica para perros y gatos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "413",
+        "titulo": "vetcross metionina protector hepatico 30 comprimidos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "4587",
+        "titulo": "anticonvulsivante brok 600 mg   30 comp",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "519",
+        "titulo": "ocubiotic con esteroides 5ml",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "33007",
+        "titulo": "spray bactrovet 440ml cicatrizante curabicheras bactrovet plata",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "33095",
+        "titulo": "collar dominal antipulgas y garrapatas - perros grandes 15 - 40 kg",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "33100",
+        "titulo": "pipeta dominal max perro 10 - 25 kg",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "SHD",
+        "titulo": "shampoo dominal garrapaticida y pulguidica 250 ml",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "PIM10",
+        "titulo": "pimocard 10mg - 20 comprimidos",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "36014",
+        "titulo": "sosten cg regenerador osteoarticular  10comp",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "126401",
+        "titulo": "mepromazin 25mg tranquilizante caninos blíster 8 comp",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "MEPRO",
+        "titulo": "mepromazin tranquilizante caninos 10 mg blíster 10 comp",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "2010-30",
+        "titulo": "artrin suplemento condroprotector 30 comp.",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "2371",
+        "titulo": "limpiador lagrimal beaphar 50ml",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "4444",
+        "titulo": "curamic plata 440ml -  matabichera",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "6202",
+        "titulo": "equilibrio perro canine obesity & diabetic 2 kg  + comedero",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "6375",
+        "titulo": "equilibrio canine renal 7,5 kg + furzapper",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "6275",
+        "titulo": "equilibrio canine obesity & diabetic 7,5 kg + shampoo",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "1244",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "1249",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "1085",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "1130",
+        "titulo": "",
+        "web": false,
+        "ml": false,
+        "regalo": false,
+        "resumen": "No está en Web, No está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "6475",
+        "titulo": "equilibrio canine intestinal 7,5kg",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "101113",
+        "titulo": "nyd prime canine puppy medium 10kg + pala + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "25105",
+        "titulo": "nyd perro adulto razas pequeñas 2.5 kg + pelota",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "10105",
+        "titulo": "nyd perro adulto razas pequeñas 10 kg + pipeta dominal max",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "101004",
+        "titulo": "nyd perro quinoa skin & coat pato 10,1kg + juguete cuerda",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "40132",
+        "titulo": "vet life natural renal feline 2kg + pala + comedero",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "7898604431114",
+        "titulo": "vet life canine urinary struvite 2kg",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      },
+      {
+        "sku": "VETLIFE",
+        "titulo": "vetlife perro adulto obesity & diabetic 2 kg - outlet",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "101024",
+        "titulo": "vet life canine hypoallergenic 10.1kg + comedero",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "11702",
+        "titulo": "lager gatos adulto 10 kg + bandeja + pala sanitaria",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "114906",
+        "titulo": "connie gato adulto 22kg - promo ml-web",
+        "web": true,
+        "ml": true,
+        "regalo": true,
+        "resumen": "Está en Web, Está en ML, Con regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "4243",
+        "titulo": "connie gato adulto 8kg + salsa snack",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "114802",
+        "titulo": "connie perro adulto 8kg + orejas",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "Tiene descripción completa"
+      },
+      {
+        "sku": "114801+2",
+        "titulo": "connie adulto 22 +2 promo",
+        "web": true,
+        "ml": true,
+        "regalo": false,
+        "resumen": "Está en Web, Está en ML, Sin regalo",
+        "descripcionCompleta": "No tiene descripción completa"
+      }
     ]
   }
 }

@@ -1,4 +1,4 @@
-// service/server.js
+
 require("dotenv").config();
 const fs = require("fs");
 const express = require("express");
@@ -123,16 +123,16 @@ const todayStr = () => {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 };
 
-// SOLO por salto de línea
+
 function parseSkus(input) {
   if (!input) return [];
 
-  // Si ya es array, devolvelo normalizado
+
   if (Array.isArray(input)) {
     return input.map((s) => String(s).trim()).filter(Boolean);
   }
 
-  // Si es string, separá por líneas
+
   return String(input)
     .split(/\r?\n+/)
     .map((s) => s.trim())
@@ -175,15 +175,14 @@ app.get("/config", (_req, res) => {
   res.json({ readOnlyDefault: READ_ONLY_DEFAULT, headlessDefault: HEADLESS, today: todayStr() });
 });
 
-// Historial por día
+
 app.get("/history", (req, res) => {
   const date = (req.query.date || todayStr()).trim();
   const { day } = getDay(date);
   res.json({ date, rows: day });
 });
 
-// Ejecuta auditoría con progreso (solo muestra por qué SKU va)
-// Ejecuta auditoría con progreso (solo muestra por qué SKU va)
+
 app.post("/run", async (req, res) => {
   try {
     const runId = Date.now();
@@ -195,7 +194,7 @@ app.post("/run", async (req, res) => {
 
     process.env.READ_ONLY = readOnly ? "true" : "false";
 
-    // Normalizar, deduplicar y omitir lo ya existente en el día
+   
     const raw = parseSkus(req.body.skus || "");
     if (!raw.length) {
       return res.status(400).json({ error: "Sin SKUs" });
@@ -207,7 +206,7 @@ app.post("/run", async (req, res) => {
 
     await ensureSession();
 
-    // NDJSON (una línea por evento)
+   
     res.setHeader("Content-Type", "application/x-ndjson; charset=utf-8");
     res.setHeader("Cache-Control", "no-cache, no-transform");
     res.setHeader("Connection", "keep-alive");
@@ -221,7 +220,7 @@ app.post("/run", async (req, res) => {
         logger.info(`[${runId}] Procesando SKU ${sku}`);
         const result = await procesarSku(page, sku);
 
-        // Derivar flags
+      
         const resumenes = result?.resumenesPorEnlace || [];
         let enWeb = false, enML = false, conRegalo = false;
         for (const r of resumenes) {
@@ -245,10 +244,10 @@ app.post("/run", async (req, res) => {
           descripcionCompleta: result?.descripcionCompleta || "",
         };
 
-        // Persistir en el día
+        
         upsertResult(date, row);
 
-        // Progreso (una línea JSON)
+       
         res.write(JSON.stringify({ type: "progress", current: i + 1, total: skus.length, sku }) + "\n");
       } catch (err) {
         logger.error(`Error en SKU ${sku}: ${err.message}`);
@@ -266,13 +265,13 @@ app.post("/run", async (req, res) => {
       }
     }
 
-    // Línea final con snapshot del día
+   
     const { day } = getDay(date);
     res.write(JSON.stringify({ type: "done", date, rows: day }) + "\n");
     res.end();
   } catch (e) {
     logger.error(`Fallo general /run: ${e.message}`);
-    // Enviar error como línea NDJSON también
+   
     try {
       res.write(JSON.stringify({ type: "error", message: e.message }) + "\n");
     } catch {}
@@ -280,7 +279,7 @@ app.post("/run", async (req, res) => {
   }
 });
 
-// Re-chequear un SKU puntual y actualizar su registro
+
 app.post("/recheck", async (req, res) => {
   try {
     const date = (req.body.date || todayStr()).trim();
@@ -324,7 +323,7 @@ app.post("/recheck", async (req, res) => {
   }
 });
 
-// Eliminar un registro (por sku y date)
+
 app.delete("/result", (req, res) => {
   const date = (req.query.date || todayStr()).trim();
   const sku = String(req.query.sku || "").trim();
@@ -334,7 +333,7 @@ app.delete("/result", (req, res) => {
   res.json({ date, rows: day });
 });
 
-// Export CSV
+
 app.get("/export", (req, res) => {
   try {
     const date = (req.query.date || todayStr()).trim();
@@ -347,11 +346,11 @@ app.get("/export", (req, res) => {
   }
 });
 
-// Cierre ordenado
+
 process.on("SIGINT", async () => {
   try { if (browser) await browser.close(); } finally { process.exit(0); }
 });
 
 app.listen(PORT, () => {
-  logger.info(`🚀 UI lista en http://localhost:${PORT}`);
+  logger.info(` UI lista en http://localhost:${PORT}`);
 });
